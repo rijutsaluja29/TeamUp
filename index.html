@@ -1,0 +1,671 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f8f7ff">
+
+  <title>TeamUp — Build Something Together</title>
+
+  <link rel="stylesheet" href="style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <script src="script.js" defer></script>
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+
+  <header class="navbar">
+    <a href="#home" class="brand">
+      <span class="brand-icon">✳</span> TeamUp
+    </a>
+
+    <nav class="nav-links" id="navLinks">
+      <a href="#home" class="nav-link active">Home</a>
+      <a href="#projects" class="nav-link">Projects</a>
+      <a href="#students" class="nav-link">Students</a>
+      <a href="#applications" class="nav-link">Applications</a>
+      <a href="#profile" class="nav-link mobile-profile">My Profile</a>
+    </nav>
+
+    <div class="nav-actions">
+      <button class="icon-btn" id="themeBtn" aria-label="Toggle theme">☼</button>
+
+      <a href="#create" class="btn btn-primary nav-create">
+        + Create Project
+      </a>
+
+      <a href="#profile" class="avatar">RS</a>
+
+      <button class="menu-btn" id="menuBtn" aria-label="Open menu">☰</button>
+    </div>
+  </header>
+
+
+  <main>
+
+    <!-- 1. HOME / LANDING PAGE -->
+
+    <section class="page hero-section" id="home">
+
+      <div class="hero-content">
+        <span class="eyebrow">✦ YOUR NEXT BIG IDEA STARTS HERE</span>
+
+        <h1>
+          Build together.<br>
+          Create <span class="gradient-text">something bigger.</span>
+        </h1>
+
+        <p>
+          Find your perfect teammates, discover exciting projects,
+          and turn your ideas into something real.
+        </p>
+
+        <div class="hero-actions">
+          <a href="#projects" class="btn btn-primary">Explore Projects ↗</a>
+          <a href="#create" class="btn btn-outline">Create a Project</a>
+        </div>
+
+        <div class="hero-stats">
+          <div>
+            <strong id="projectStat">12+</strong>
+            <span>Projects</span>
+          </div>
+
+          <div>
+            <strong id="studentStat">50+</strong>
+            <span>Students</span>
+          </div>
+
+          <div>
+            <strong>100%</strong>
+            <span>Possibilities</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-visual">
+        <div class="floating-card float-top">
+          <span class="float-icon">✦</span>
+          <div>
+            <strong>Great ideas</strong>
+            <small>Start with a team</small>
+          </div>
+        </div>
+
+        <div class="hero-art">
+          <div class="art-orbit orbit-one"></div>
+          <div class="art-orbit orbit-two"></div>
+
+          <div class="art-center">
+            <span>✳</span>
+            <strong>TEAM<br>UP</strong>
+          </div>
+
+          <div class="art-person person-one">👨🏻‍💻</div>
+          <div class="art-person person-two">👩🏻‍💻</div>
+          <div class="art-person person-three">🧑🏽‍💻</div>
+
+          <span class="art-tag tag-one">Frontend</span>
+          <span class="art-tag tag-two">Design</span>
+          <span class="art-tag tag-three">AI / ML</span>
+        </div>
+
+        <div class="floating-card float-bottom">
+          <span class="online-dot"></span>
+          <div>
+            <strong>Find your people</strong>
+            <small>Build something awesome</small>
+          </div>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- 2. PROJECT LIST / BROWSE PROJECTS -->
+
+    <section class="page section" id="projects">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">DISCOVER & BUILD</span>
+          <h2>Explore projects<span class="heading-dot">.</span></h2>
+          <p>Find interesting ideas and meet your future teammates.</p>
+        </div>
+
+        <a href="#create" class="btn btn-primary">+ New Project</a>
+      </div>
+
+      <div class="project-toolbar">
+        <label class="search-box">
+          <span>⌕</span>
+          <input id="searchInput" type="search"
+            placeholder="Search projects, skills or ideas...">
+        </label>
+
+        <select id="categoryFilter" aria-label="Filter by category">
+          <option value="All">All Categories</option>
+          <option value="Web Development">Web Development</option>
+          <option value="AI / Machine Learning">AI / ML</option>
+          <option value="Mobile App">Mobile App</option>
+          <option value="Design">Design</option>
+        </select>
+
+        <select id="roleFilter" aria-label="Filter by role">
+          <option value="All">All Roles</option>
+          <option value="Frontend Developer">Frontend Developer</option>
+          <option value="Backend Developer">Backend Developer</option>
+          <option value="UI/UX Designer">UI/UX Designer</option>
+          <option value="ML Engineer">ML Engineer</option>
+          <option value="Mobile Developer">Mobile Developer</option>
+        </select>
+
+        <button class="btn btn-outline" id="savedFilter">♡ Saved</button>
+      </div>
+
+      <div class="project-layout">
+
+        <aside class="category-sidebar">
+          <h3>Categories</h3>
+
+          <button class="category-item active" data-category="All">
+            ◈ All Projects
+          </button>
+
+          <button class="category-item" data-category="Web Development">
+            ◇ Web Development
+          </button>
+
+          <button class="category-item" data-category="AI / Machine Learning">
+            ✧ AI / Machine Learning
+          </button>
+
+          <button class="category-item" data-category="Mobile App">
+            ▣ Mobile App
+          </button>
+
+          <button class="category-item" data-category="Design">
+            ✎ Design
+          </button>
+        </aside>
+
+        <div class="project-grid" id="projectGrid">
+          <!-- JavaScript renders project cards here -->
+        </div>
+
+      </div>
+
+      <p class="empty-state hidden" id="emptyProjects">
+        No projects found. Try another search or create a project!
+      </p>
+
+    </section>
+
+
+    <!-- 3. PROJECT DETAILS -->
+
+    <section class="page section" id="details">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">GET TO KNOW THE IDEA</span>
+          <h2>Project details<span class="heading-dot">.</span></h2>
+          <p>Everything you need to know before joining a team.</p>
+        </div>
+
+        <a href="#projects" class="btn btn-outline">← Back to Projects</a>
+      </div>
+
+      <div class="details-container" id="projectDetails">
+
+        <div class="details-hero">
+          <div class="project-icon large-icon">⌘</div>
+
+          <div class="details-title">
+            <span class="badge">Web Development</span>
+            <h2>Select a project</h2>
+            <p>Choose a project from Explore Projects to see its details.</p>
+          </div>
+
+          <div class="details-actions">
+            <button class="btn btn-primary" id="detailsApply">
+              Apply Now ↗
+            </button>
+
+            <button class="btn btn-outline" id="shareBtn">↗ Share</button>
+          </div>
+        </div>
+
+        <div class="details-grid">
+
+          <article class="panel">
+            <h3>About the project</h3>
+            <p id="detailsDescription">
+              Explore projects to discover their goals and requirements.
+            </p>
+
+            <h3 class="subheading">Tech stack</h3>
+            <div class="tag-list" id="detailsSkills"></div>
+          </article>
+
+          <article class="panel">
+            <h3>Required roles</h3>
+            <div id="detailsRoles"></div>
+          </article>
+
+          <article class="panel">
+            <h3>Project information</h3>
+            <div class="info-row">
+              <span>👤 Project owner</span>
+              <strong id="detailsOwner">TeamUp Student</strong>
+            </div>
+
+            <div class="info-row">
+              <span>◷ Time commitment</span>
+              <strong id="detailsTime">5–10 hours/week</strong>
+            </div>
+
+            <div class="info-row">
+              <span>◈ Deadline</span>
+              <strong id="detailsDeadline">Flexible</strong>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>Join this project</h3>
+            <p>Interested in collaborating? Send an application to the project owner.</p>
+
+            <button class="btn btn-primary full-width" id="detailsApplyBottom">
+              Apply to join
+            </button>
+          </article>
+
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- 4. CREATE PROJECT FORM -->
+
+    <section class="page section" id="create">
+
+      <div class="form-wrapper">
+        <div class="form-heading">
+          <span class="eyebrow">BRING YOUR IDEA TO LIFE</span>
+          <h2>Create a new project<span class="heading-dot">.</span></h2>
+          <p>Share your vision and find the right people to build it with.</p>
+        </div>
+
+        <form id="projectForm">
+
+          <div class="form-grid">
+
+            <div class="form-group full-width">
+              <label for="projectTitle">Project title *</label>
+              <input id="projectTitle" required maxlength="70"
+                placeholder="e.g. Campus Connect">
+            </div>
+
+            <div class="form-group">
+              <label for="projectCategory">Category *</label>
+
+              <select id="projectCategory" required>
+                <option value="Web Development">Web Development</option>
+                <option value="AI / Machine Learning">AI / Machine Learning</option>
+                <option value="Mobile App">Mobile App</option>
+                <option value="Design">Design</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="projectOwner">Your name *</label>
+              <input id="projectOwner" required maxlength="50"
+                placeholder="Enter your name">
+            </div>
+
+            <div class="form-group full-width">
+              <label for="projectDescription">Project description *</label>
+
+              <textarea id="projectDescription" required maxlength="1000"
+                rows="5"
+                placeholder="What are you building? What problem does it solve?"></textarea>
+            </div>
+
+            <div class="form-group full-width">
+              <label for="projectSkills">Skills needed *</label>
+
+              <input id="projectSkills" required
+                placeholder="HTML, CSS, JavaScript">
+
+              <small>Separate skills with commas.</small>
+            </div>
+
+            <div class="form-group">
+              <label for="projectTime">Time commitment</label>
+
+              <select id="projectTime">
+                <option>1–5 hours/week</option>
+                <option selected>5–10 hours/week</option>
+                <option>10–15 hours/week</option>
+                <option>15+ hours/week</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="projectDeadline">Project deadline</label>
+              <input id="projectDeadline" type="date">
+            </div>
+
+            <div class="form-group full-width">
+              <label>Required roles *</label>
+
+              <div class="checkbox-grid">
+                <label><input type="checkbox" name="roles" value="Frontend Developer"> Frontend Developer</label>
+                <label><input type="checkbox" name="roles" value="Backend Developer"> Backend Developer</label>
+                <label><input type="checkbox" name="roles" value="UI/UX Designer"> UI/UX Designer</label>
+                <label><input type="checkbox" name="roles" value="ML Engineer"> ML Engineer</label>
+                <label><input type="checkbox" name="roles" value="Mobile Developer"> Mobile Developer</label>
+                <label><input type="checkbox" name="roles" value="Other"> Other</label>
+              </div>
+            </div>
+
+          </div>
+
+          <div class="form-footer">
+            <button type="reset" class="btn btn-outline">Clear form</button>
+            <button type="submit" class="btn btn-primary">Create Project ↗</button>
+          </div>
+
+        </form>
+      </div>
+
+    </section>
+
+
+    <!-- 5. STUDENT PROFILE -->
+
+    <section class="page section" id="profile">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">YOUR SPACE</span>
+          <h2>Student profile<span class="heading-dot">.</span></h2>
+          <p>Show the community what you can bring to a team.</p>
+        </div>
+
+        <button class="btn btn-primary" id="editProfileBtn">✎ Edit Profile</button>
+      </div>
+
+      <div class="profile-layout">
+
+        <article class="panel profile-card">
+          <div class="profile-avatar" id="profileAvatar">RS</div>
+
+          <h2 id="profileName">Rijut Saluja</h2>
+          <p class="profile-course" id="profileCourse">BCA Student · Itarsi</p>
+
+          <p id="profileBio">
+            Passionate about web development and building cool projects.
+          </p>
+
+          <div class="profile-meta">
+            <span>📍 Itarsi, India</span>
+            <span>✦ Open to collaboration</span>
+          </div>
+
+          <h3>Skills</h3>
+          <div class="tag-list" id="profileSkills">
+            <span class="tag">HTML</span>
+            <span class="tag">CSS</span>
+            <span class="tag">JavaScript</span>
+            <span class="tag">Git</span>
+          </div>
+
+          <h3>Interests</h3>
+          <div class="tag-list">
+            <span class="tag">Web Development</span>
+            <span class="tag">Open Source</span>
+            <span class="tag">AI</span>
+          </div>
+        </article>
+
+        <div class="profile-right">
+
+          <article class="panel">
+            <h3>Availability</h3>
+
+            <div class="info-row">
+              <span>◷ Hours per week</span>
+              <strong id="profileHours">10–15 hours</strong>
+            </div>
+
+            <div class="info-row">
+              <span>● Status</span>
+              <strong class="success-text">Available</strong>
+            </div>
+          </article>
+
+          <article class="panel">
+            <div class="panel-heading">
+              <h3>My projects</h3>
+              <a href="#create" class="text-link">+ Create</a>
+            </div>
+
+            <div id="myProjects" class="my-projects">
+              <p class="muted">Your created projects will appear here.</p>
+            </div>
+          </article>
+
+          <article class="panel">
+            <h3>My applications</h3>
+            <div id="myApplications">
+              <p class="muted">Your submitted applications will appear here.</p>
+            </div>
+          </article>
+
+        </div>
+
+      </div>
+
+      <!-- Edit profile modal -->
+
+      <div class="modal hidden" id="profileModal">
+        <div class="modal-card">
+
+          <div class="panel-heading">
+            <h2>Edit profile</h2>
+            <button type="button" class="icon-btn" id="closeProfileModal">✕</button>
+          </div>
+
+          <form id="profileForm">
+
+            <div class="form-group">
+              <label for="editName">Full name</label>
+              <input id="editName" required>
+            </div>
+
+            <div class="form-group">
+              <label for="editCourse">Course / College</label>
+              <input id="editCourse" required>
+            </div>
+
+            <div class="form-group">
+              <label for="editBio">About you</label>
+              <textarea id="editBio" maxlength="300" required></textarea>
+            </div>
+
+            <div class="form-group">
+              <label for="editSkills">Skills (comma-separated)</label>
+              <input id="editSkills" required>
+            </div>
+
+            <div class="form-group">
+              <label for="editHours">Weekly availability</label>
+              <select id="editHours">
+                <option>1–5 hours</option>
+                <option>5–10 hours</option>
+                <option>10–15 hours</option>
+                <option>15+ hours</option>
+              </select>
+            </div>
+
+            <button class="btn btn-primary full-width" type="submit">
+              Save Changes
+            </button>
+
+          </form>
+        </div>
+      </div>
+
+    </section>
+
+
+    <!-- 6. APPLICATION MANAGEMENT -->
+
+    <section class="page section" id="applications">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">BUILD YOUR DREAM TEAM</span>
+          <h2>Applications<span class="heading-dot">.</span></h2>
+          <p>Review student applications for your projects.</p>
+        </div>
+      </div>
+
+      <div class="application-tabs">
+        <button class="tab-btn active" data-status="Pending">
+          Pending <span id="pendingCount">0</span>
+        </button>
+
+        <button class="tab-btn" data-status="Accepted">
+          Accepted <span id="acceptedCount">0</span>
+        </button>
+
+        <button class="tab-btn" data-status="Rejected">
+          Rejected <span id="rejectedCount">0</span>
+        </button>
+      </div>
+
+      <div class="applications-list" id="applicationsList"></div>
+
+      <p class="empty-state hidden" id="emptyApplications">
+        No applications in this category yet.
+      </p>
+
+    </section>
+
+
+    <!-- 7. STUDENT DIRECTORY -->
+
+    <section class="page section" id="students">
+
+      <div class="section-heading">
+        <div>
+          <span class="eyebrow">MEET YOUR NEXT TEAMMATE</span>
+          <h2>Discover students<span class="heading-dot">.</span></h2>
+          <p>Connect with talented students and explore their skills.</p>
+        </div>
+      </div>
+
+      <label class="search-box student-search">
+        <span>⌕</span>
+        <input id="studentSearch" type="search"
+          placeholder="Search by name, course or skill...">
+      </label>
+
+      <div class="student-grid" id="studentGrid"></div>
+
+      <p class="empty-state hidden" id="emptyStudents">
+        No students match your search.
+      </p>
+
+    </section>
+
+  </main>
+
+
+  <!-- APPLY MODAL -->
+
+  <div class="modal hidden" id="applyModal">
+
+    <div class="modal-card">
+
+      <div class="panel-heading">
+        <div>
+          <span class="eyebrow">LET'S BUILD TOGETHER</span>
+          <h2>Apply to project</h2>
+        </div>
+
+        <button class="icon-btn" id="closeApplyModal">✕</button>
+      </div>
+
+      <form id="applicationForm">
+
+        <input type="hidden" id="applyProjectId">
+
+        <div class="form-group">
+          <label for="applicantName">Your name *</label>
+          <input id="applicantName" required maxlength="50">
+        </div>
+
+        <div class="form-group">
+          <label for="applicantRole">Preferred role *</label>
+          <select id="applicantRole" required>
+            <option value="Frontend Developer">Frontend Developer</option>
+            <option value="Backend Developer">Backend Developer</option>
+            <option value="UI/UX Designer">UI/UX Designer</option>
+            <option value="ML Engineer">ML Engineer</option>
+            <option value="Mobile Developer">Mobile Developer</option>
+            <option value="Other">Other</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="applicantSkills">Your skills</label>
+          <input id="applicantSkills" placeholder="HTML, CSS, JavaScript">
+        </div>
+
+        <div class="form-group">
+          <label for="applicantMessage">Why do you want to join?</label>
+          <textarea id="applicantMessage" maxlength="500"
+            placeholder="Tell the owner how you can contribute..."></textarea>
+        </div>
+
+        <button type="submit" class="btn btn-primary full-width">
+          Submit Application ↗
+        </button>
+
+      </form>
+
+    </div>
+  </div>
+
+
+  <!-- TOAST NOTIFICATION -->
+
+  <div id="toast" class="toast" role="status"></div>
+
+
+  <!-- FOOTER -->
+
+  <footer class="footer">
+    <a href="#home" class="brand">
+      <span class="brand-icon">✳</span> TeamUp
+    </a>
+
+    <p>Made for students who dream bigger. ✦</p>
+
+    <a href="#home" class="text-link">Back to top ↑</a>
+  </footer>
+
+</body>
+</html>
